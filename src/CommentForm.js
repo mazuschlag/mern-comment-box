@@ -21,7 +21,7 @@ class CommentForm extends Component {
 			return;
 		}
 		this.props.onCommentSubmit(text);
-		this.setState({ text: ''});
+		this.setState({ text: '' });
 	}
 
 	render() {
@@ -30,7 +30,7 @@ class CommentForm extends Component {
 				<input type='text' placeholder='Say something...' syle={ style.commentFormText } value={ this.state.text } onChange={ this.handleTextChange } />
 				<input type='submit' style={ style.commentFormPost } value='Post' />
 			</form>
-		)
+		);
 	}
 }
 

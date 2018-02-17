@@ -9,16 +9,25 @@ class CommentBox extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			data: []
+			data: [],
 		};
 		this.loadCommentsFromServer = this.loadCommentsFromServer.bind(this);
 		this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
 	}
 
+	postAuthor() {
+		axios.post(this.props.url, this.props.author)
+		.then(res => {
+		})
+		.catch(err => {
+			console.error(err);
+		});	
+	}
+
 	loadCommentsFromServer() {
 		axios.get(this.props.url)
 		.then(res => {
-			this.setState( {data: res.data });
+			this.setState({ data: res.data });
 		});
 	}
 
@@ -41,6 +50,7 @@ class CommentBox extends Component {
 	}
 
 	componentDidMount() {
+		this.postAuthor();
 		this.loadCommentsFromServer();
 		setInterval(this.loadCommentsFromServer, this.props.pollInterval);
 	}
@@ -50,9 +60,9 @@ class CommentBox extends Component {
 			<div style={ style.commentBox }>
 				<h2>Comments:</h2>
 				<CommentList data={ this.state.data }/>
-				<CommentForm onCommentSubmit={ this.handleCommentSubmit } />
+				<CommentForm onCommentSubmit={ this.handleCommentSubmit }/>
 			</div>
-		)
+		);
 	}
 }
 

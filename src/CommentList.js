@@ -14,7 +14,7 @@ class CommentList extends Component {
 			<div style={ style.commentList }>
 				{ commentNodes }
 			</div>
-		)
+		);
 	}
 }
 
