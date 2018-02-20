@@ -1,7 +1,7 @@
 // Home.js
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import style from './style';
+import style from '../style';
 
 class Home extends Component {
 	constructor(props) {
@@ -20,7 +20,8 @@ class Home extends Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		console.log("Handling author submit");
-		this.props.submit(this.state.name); 
+
+		this.props.submit(this.state.name);
 	}
 
 	render() {
@@ -28,10 +29,12 @@ class Home extends Component {
 			return <Redirect push to='/comments'/>;
 		}
 		return(
-			<form onSubmit={ this.handleSubmit }>
-				<input type='text' placeholder='Your name...' value={ this.state.author } onChange={ this.handleAuthorChange }/>
-					<input type='submit' style={ style.commentFormPost } value='Post'/>
-			</form>
+			<div style={ style.homePage }>
+				<form style={ style.homePageForm } onSubmit={ this.handleSubmit }>
+					<input type='text' style={ style.homePageText }placeholder='Username' value={ this.state.author } onChange={ this.handleAuthorChange }/>
+						<input type='submit' style={ style.homePagePost } value='Start'/>
+				</form>
+			</div>
 		);
 	}
 

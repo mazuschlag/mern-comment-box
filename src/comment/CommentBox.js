@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import CommentList from './CommentList';
 import CommentForm from './CommentForm';
-import style from './style';
+import style from '../style';
 
 class CommentBox extends Component {
 	constructor(props) {
@@ -15,14 +15,6 @@ class CommentBox extends Component {
 		this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
 	}
 
-	postAuthor() {
-		axios.post(this.props.url, this.props.author)
-		.then(res => {
-		})
-		.catch(err => {
-			console.error(err);
-		});	
-	}
 
 	loadCommentsFromServer() {
 		axios.get(this.props.url)
@@ -50,7 +42,6 @@ class CommentBox extends Component {
 	}
 
 	componentDidMount() {
-		this.postAuthor();
 		this.loadCommentsFromServer();
 		setInterval(this.loadCommentsFromServer, this.props.pollInterval);
 	}

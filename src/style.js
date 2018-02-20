@@ -1,5 +1,40 @@
 //style.js
 const style = {
+	homePage: {
+		width: '100%',
+		height: '100%',
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center'
+	}, 
+
+	homePageForm: {
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center'
+	},
+
+	homePageText: {
+ 		maxWidth:'10em',
+ 		margin:'3px',
+ 		padding:'0 10px',
+ 		height:'40px',
+ 		borderRadius:'3px'
+	},
+
+	homePagePost: {
+		maxWidth:'75px',
+ 		height:'40px',
+ 		margin:'5px 3px',
+ 		fontSize:'1rem',
+ 		backgroundColor:'#58A4FB',
+ 		borderRadius:'3px',
+ 		color:'#fff',
+ 		textTransform:'uppercase',
+ 		letterSpacing:'.055rem',
+ 		border:'none'
+	},
+
 	commentBox: {
 		width:'80vw',
  		margin:'0 auto',
@@ -32,17 +67,8 @@ const style = {
  		justifyContent:'space-between'
  	},
  	
- 	commentFormAuthor: {
- 		minWidth:'150px',
- 		margin:'3px',
- 		padding:'0 10px',
- 		borderRadius:'3px',
- 		height:'40px',
- 		flex:'2'
- 	},
- 	
  	commentFormText: {
- 		flex:'4',
+ 		flex:'1',
  		minWidth:'400px',
  		margin:'3px',
  		padding:'0 10px',
@@ -51,12 +77,12 @@ const style = {
  	},
  	
  	commentFormPost: {
- 		minWidth:'75px',
+ 		maxWidth:'75px',
  		flex:'1',
  		height:'40px',
  		margin:'5px 3px',
  		fontSize:'1rem',
- 		backgroundColor:'#A3CDFD',
+ 		backgroundColor:'#58A4FB',
  		borderRadius:'3px',
  		color:'#fff',
  		textTransform:'uppercase',
@@ -64,18 +90,6 @@ const style = {
  		border:'none'
  	},
  	
- 	updateLink: {
- 		textDecoration:'none',
- 		paddingRight:'15px',
- 		fontSize:'.7rem'
- 	},
- 	
- 	deleteLink: {
- 		textDecoration:'none',
- 		paddingRight:'15px',
- 		fontSize:'.7rem',
- 		color:'red'
- 	}
 }
 
 module.exports = style;

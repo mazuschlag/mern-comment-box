@@ -5,8 +5,8 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
-var Comment = require('./model/comments');
-var Author = require('./model/authors');
+var Comment = require('../model/comments');
+var Author = require('../model/authors');
 
 var app = express();
 var router = express.Router();
@@ -15,7 +15,7 @@ var router = express.Router();
 var port = process.env.API_PORT || 3001;
 
 // DB configuration
-mongoose.connect('mongodb://<USERNAME>:<PASSWORD>.mlab.com:62448/mern-comments');
+mongoose.connect('mongodb://<USERNAME>:<PASSWORD>@ds062448.mlab.com:62448/mern-comments');
 
 // Now configure the API to use bodyParser and look for JSON data in request body
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -63,6 +63,16 @@ router.route('/authors')
 			} else {
 				res.json({ message: 'User already exists' });
 			}
+		});
+	});
+
+router.route('/authors/:author_id')
+	.delete(function (req, res) {
+		Author.remove({ _id: req.params.author_id }, function(err, author) {
+			if (err) {
+				res.send(err);
+			}
+			res.json({ message: 'Author successfully deleted' });
 		});
 	});
 
@@ -133,7 +143,7 @@ router.route('/comments/:comment_id')
 		if (err) {
 			res.send(err);
 		}
-		res.json({ message: 'Comment has been deleted'});
+		res.json({ message: 'Comment has been deleted' });
 	});
 }); 
 
